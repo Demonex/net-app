@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Connection } from './components/Connection';
+import { StartBtn } from './components/StartBtn';
+import { ToolBar } from './components/ToolBar';
+import { User } from './interfaces/core';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [users, setUsers] = React.useState<User[]>([])
+    const [isLoading, setLoading] = React.useState(true)
+
+    React.useEffect(() => {
+        setTimeout(() => {
+            setUsers( [{name: "Dima"}, {name: "Peter"}, {name: "Vanya"}] )
+            setLoading(false)
+        }, 3000)
+    }, [])
+
+    return (
+        <Router>
+            <div className='main-container'>
+                <ToolBar />
+
+                <div className='main-content'>
+                    <Routes>
+                        <Route element={<StartBtn />} path="/" />
+                        <Route element={<Connection isLoading={isLoading} users={users} />} path="/connect" />
+                    </Routes>
+                </div>
+            </div>
+
+        </Router>
+    )
 }
 
 export default App;
