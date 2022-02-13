@@ -22,9 +22,58 @@ code {
 }
 
 .main-content {
-    flex-grow: 1;
-    margin: 0 auto;
+    height: 100%;
+    margin: 0 15px;
+    /* flex-grow: 1; */
+    /* margin: 0 auto; */
+    /* display: flex; */
+    /* align-items: center; */
+}
+
+.toolbar {
+    justify-content: space-between;
+}
+
+.btn-wrapper, .loader-wrapper {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-view-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.users-container {
+    border-right: 4px solid #666;
+    width: 330px;
+    display: flex;
+}
+
+.users-wrapper {
+    margin-top: 30px;
+    height: inherit;
+}
+
+.user-record {
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+.avatar-name {
     display: flex;
     align-items: center;
 }
 
+.actions-container {
+    justify-content: flex-end;
+}
+
+.actions {
+    width: 170px;
+    display: flex;
+    justify-content: space-between;
+}

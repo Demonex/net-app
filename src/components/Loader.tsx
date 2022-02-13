@@ -4,6 +4,8 @@ import React from "react"
 
 export const Loader: React.FC = () => {
     return (
-        <CircularProgress size={100}/>
+        <div className="loader-wrapper">
+            <CircularProgress size={100} />
+        </div>
     )
 }

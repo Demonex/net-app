@@ -11,7 +11,8 @@ function App() {
 
     React.useEffect(() => {
         setTimeout(() => {
-            setUsers( [{name: "Dima"}, {name: "Peter"}, {name: "Vanya"}] )
+            setUsers( [{name: "Dima", id: Date.now()}, {name: "Peter", id: Date.now()},
+            {name: "Vanya", id: Date.now()}] )
             setLoading(false)
         }, 3000)
     }, [])
